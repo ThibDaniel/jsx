@@ -1,4 +1,4 @@
-export function Welcome({ name = "World", age }) {
+export function Welcome({ name, age }) {
 	return (
 		<div>
 			<p>Hello, {name}!</p>

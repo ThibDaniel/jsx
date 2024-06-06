@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Counter() {
     const [counter, SetCounter] = useState(0)
+    
+    useEffect(() => {
+        console.log(counter);
+    },[counter])
+
     function Increment() {
         SetCounter((c) => c + 1)
     }
