@@ -6,21 +6,23 @@ import { Welcome } from './Welcome'
 import { Clock } from './Clock'
 import { Counter } from './CounterInc'
 import { ClocEffect } from './ClocEffect'
+import { MouseClicker } from './MouseClicker'
 
 
 function App() {
   const [count, setCount] = useState(0)
   const name = "Pluto"
- const age = 18
+  const age = 18
 
   return (
-    <>  
+    <>
       <HelloWorld />
       <Message></Message>
       <Welcome name={name} age={age} />
       <Clock></Clock>
-      <Counter></Counter>
-      <ClocEffect/>
+      <Counter/>
+      <ClocEffect />
+      <MouseClicker />
 
     </>
   )
