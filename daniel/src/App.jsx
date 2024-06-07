@@ -9,6 +9,7 @@ import { ClocEffect } from './ClocEffect'
 import { MouseClicker } from './MouseClicker'
 import { InteractiveWelcome } from './InteractiveWelcome'
 import { Login } from './Login'
+import { Container } from './Container'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   const age = 18
 
   return (
+    <Container title={<h1>My Title</h1>}>
     <div className='welcome'>
       <HelloWorld />
       <Message></Message>
@@ -28,6 +30,7 @@ function App() {
       <InteractiveWelcome/>
       <Login></Login>
     </div>
+    </Container>
   )
 }
 
