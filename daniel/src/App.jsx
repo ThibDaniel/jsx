@@ -17,7 +17,7 @@ function App() {
   const age = 18
 
   return (
-    <>
+    <div className='welcome'>
       <HelloWorld />
       <Message></Message>
       <Welcome name={name} age={age} />
@@ -27,7 +27,7 @@ function App() {
       <MouseClicker />
       <InteractiveWelcome/>
       <Login></Login>
-    </>
+    </div>
   )
 }
 
