@@ -12,6 +12,7 @@ import { Login } from './Login'
 import { Container } from './Container'
 import { LanguageContext } from './LanguageContext'
 import { GitHubUser } from './GitHubUser'
+import { GithubUsers } from './GithubUsers'
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
       <Login></Login>
     </div>
     <GitHubUser/>
-    <GitHubUsers/>
+    <GithubUsers/>
     </Container>
     
   )

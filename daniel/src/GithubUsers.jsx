@@ -29,7 +29,7 @@ export const GithubUsers = () => {
         <ul>
           {users.map((user) => (
             <li key={user.id}>
-              <GithubUser username={user.login} />
+              <GitHubUser username={user.login} />
             </li>
           ))}
         </ul>
