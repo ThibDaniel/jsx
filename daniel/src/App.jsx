@@ -14,6 +14,7 @@ import { LanguageContext } from './LanguageContext'
 import { GitHubUser } from './GitHubUser'
 import { GithubUsers } from './GithubUsers'
 import { LoginForm } from './LoginForm'
+import { TodoList } from './ToDoList'
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
     <LoginForm/>
     <GitHubUser/>
     <GithubUsers/>
+    <TodoList/>
     </Container>
     
   )
