@@ -13,10 +13,10 @@ import { Container } from './Container'
 import { LanguageContext } from './LanguageContext'
 import { GitHubUser } from './GitHubUser'
 import { GithubUsers } from './GithubUsers'
+import { LoginForm } from './LoginForm'
 
 
 function App() {
-  const [count, setCount] = useState(0)
   const name = "Daniel"
   const age = 18
  const [language, setLanguage] = useState('it')
@@ -44,6 +44,7 @@ function App() {
       <InteractiveWelcome/>
       <Login></Login>
     </div>
+    <LoginForm/>
     <GitHubUser/>
     <GithubUsers/>
     </Container>
