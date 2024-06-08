@@ -5,13 +5,13 @@ export function LoginForm() {
     const [password, setPassword] = useState('');
   
     const handleLogin = (event) => {
-      event.preventDefault(); // Prevent the default form submission behavior
+      event.preventDefault(); 
   
       // Your login logic goes here
       console.log('Username:', username);
       console.log('Password:', password);
   
-      // You can perform further actions like sending the data to a server
+      
     };
   
     return (
