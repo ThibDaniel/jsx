@@ -10,27 +10,43 @@ import { MouseClicker } from './MouseClicker'
 import { InteractiveWelcome } from './InteractiveWelcome'
 import { Login } from './Login'
 import { Container } from './Container'
+import { LanguageContext } from './LanguageContext'
+import { GitHubUser } from './GitHubUser'
 
 
 function App() {
   const [count, setCount] = useState(0)
   const name = "Daniel"
   const age = 18
+ const [language, setLanguage] = useState('it')
 
   return (
+   
+      
     <Container title={<h1>My Title</h1>}>
     <div className='welcome'>
       <HelloWorld />
       <Message></Message>
       <Welcome name={name} age={age} />
+    <div>
+      <LanguageContext.Provider value={language}>
+        <select name="language" value={language} onChange={(e) => setLanguage(e.target.value)}>
+          <option value="en">EN</option>
+          <option value="it">IT</option>
+        </select>
       <Clock></Clock>
+      </LanguageContext.Provider >
+      </div>
       <Counter/>
       <ClocEffect />
       <MouseClicker />
       <InteractiveWelcome/>
       <Login></Login>
     </div>
+    <GitHubUser/>
+    <GitHubUsers/>
     </Container>
+    
   )
 }
 
