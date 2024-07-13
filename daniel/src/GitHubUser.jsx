@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
+import useSWR from "swr"
 
-export const GitHubUser = ({username}) => {
-const [user, setUser] = useState(null);
+const fetcher = (url) => fetch(url).then((res) => res.json())
+export const GitHubUser = (username) => {
+/*const [user, setUser] = useState(null);
 const [error, setError] = useState(null);
 const [load, setLoad] = useState(false);
 
@@ -26,5 +28,14 @@ useEffect(() => {
     {error && <div>{error.message}</div>}
     {load && <div>Loading...</div>}
 </div>
-)
+)*/
+const {data, error} = useSWR(`https://api.github.com/users/${username}`, fetcher)  
+
+return{
+  
+   user: data,
+		error,
+		loading: !data && !error,
+  
+}
 }

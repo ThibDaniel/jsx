@@ -57,10 +57,10 @@ function App() {
         <LoginForm />
         <Routes>  
           <Route path='/users' element={<GitHubUser/>}/>
-          <Route path="/users/:name" element={<ShowGitHubUser/>} />
+          <Route path="/users/:username" element={<ShowGitHubUser/>} />
         </Routes>
        
-        <GithubUsers />
+       <GithubUsers />
         <TodoList />
       </Container>
     </BrowserRouter>
