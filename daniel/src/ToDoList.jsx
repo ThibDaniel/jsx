@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const TodoList = () => {
     const [todo, setTodo] = useState([]);
     const [newTodo, setNewTodo] = useState('');
@@ -14,7 +16,7 @@ export const TodoList = () => {
     };
   
     const handleRemoveTodo = (indexToRemove) => {
-      setTodo(todo.filter((_, index) => index !== indexToRemove));
+      setTodo(todo.filter((a, index) => index !== indexToRemove));
     };
   
     return (
@@ -28,7 +30,7 @@ export const TodoList = () => {
         <button onClick={handleAddTodo}>Add To do</button>
         <button onClick={handleReset}>Reset</button>
         <ul>
-          {todos.map((todo, index) => (
+          {todo.map((todo, index) => (
             <li key={index}>
               {todo}
               <button onClick={() => handleRemoveTodo(index)}>Remove</button>

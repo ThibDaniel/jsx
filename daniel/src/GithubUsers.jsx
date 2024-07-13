@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { GitHubUser } from "./GitHubUser";
 
-export const GithubUsers = () => {
+
+
+export const GithubUsers = (username) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [users, setUsers] = useState([]);
   
@@ -26,7 +28,7 @@ export const GithubUsers = () => {
           <input type="text" value={searchQuery} onChange={handleInputChange} placeholder="Enter username" />
           <button type="submit">Search</button>
         </form>
-        <ul>
+        <ul> 
           {users.map((user) => (
             <li key={user.id}>
               <GitHubUser username={user.login} />
@@ -35,4 +37,4 @@ export const GithubUsers = () => {
         </ul>
       </div>
     );
-  };
+  }
