@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom"
 import './App.css'
 import { HelloWorld } from './HelloWorld'
 import { Message } from './Message'
@@ -15,42 +16,55 @@ import { GitHubUser } from './GitHubUser'
 import { GithubUsers } from './GithubUsers'
 import { LoginForm } from './LoginForm'
 import { TodoList } from './ToDoList'
+import { ShowGitHubUser } from './ShowGitHubUser'
 
 
 function App() {
   const name = "Daniel"
   const age = 18
- const [language, setLanguage] = useState('it')
+  const [language, setLanguage] = useState('it')
 
   return (
-   
-      
-    <Container title={<h1>My Title</h1>}>
-    <div className='welcome'>
-      <HelloWorld />
-      <Message></Message>
-      <Welcome name={name} age={age} />
-    <div>
-      <LanguageContext.Provider value={language}>
-        <select name="language" value={language} onChange={(e) => setLanguage(e.target.value)}>
-          <option value="en">EN</option>
-          <option value="it">IT</option>
-        </select>
-      <Clock></Clock>
-      </LanguageContext.Provider >
-      </div>
-      <Counter/>
-      <ClocEffect />
-      <MouseClicker />
-      <InteractiveWelcome/>
-      <Login></Login>
-    </div>
-    <LoginForm/>
-    <GitHubUser/>
-    <GithubUsers/>
-    <TodoList/>
-    </Container>
-    
+
+    <BrowserRouter>
+      <Container title={<h1>My Title</h1>}>
+        <div>
+          <Link to="/">Home</Link> | <Link to="/counter">Counter</Link> | <Link to="/users">Users</Link>
+        </div>
+        <div className='welcome'>
+          <HelloWorld />
+          <Message></Message>
+          <Routes>
+            <Route path='/' element={<Welcome name='Daniel'/>} />
+          </Routes>
+          <div>
+            <select name="language" value={language} onChange={(e) => setLanguage(e.target.value)}>
+              <option value="en">EN</option>
+              <option value="it">IT</option>
+            </select>
+            <LanguageContext.Provider value={language}>
+              <Clock></Clock>
+            </LanguageContext.Provider >
+          </div>
+          <Routes>
+            <Route path='/counter' element={<Counter/>} />
+          </Routes>
+          <ClocEffect />
+          <MouseClicker />
+          <InteractiveWelcome />
+          <Login></Login>
+        </div>
+        <LoginForm />
+        <Routes>  
+          <Route path='/users' element={<GitHubUser/>}/>
+          <Route path="/users/:username" element={<ShowGitHubUser/>} />
+        </Routes>
+       
+       <GithubUsers />
+        <TodoList />
+      </Container>
+    </BrowserRouter>
+
   )
 }
 
