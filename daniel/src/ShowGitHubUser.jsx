@@ -1,6 +1,15 @@
-import { useParams } from "react-router-dom"
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ShowGithubUser from './components/ShowGithubUser'; // Adjust the path accordingly
 
-export const ShowGitHubUser = () => {
-    const {username} = useParams
-    return <GithubUser username={username} />;
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/users/:username" component={ShowGithubUser} />
+      </Switch>
+    </Router>
+  );
 }
+
+export default App;
