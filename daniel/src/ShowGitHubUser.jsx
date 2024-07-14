@@ -1,14 +1,38 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ShowGithubUser from './components/ShowGithubUser'; 
+import { useParams } from 'react-router-dom';
+import GithubUser from './GithubUser';
+
+const ShowGithubUser = () => {
+  const { username } = useParams();
+  return (
+    <div>
+      <h1>GitHub User: {username}</h1>
+      <GithubUser username={username} />
+    </div>
+  );
+};
+
+export default ShowGithubUser;
+
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import GithubUsers from './GithubUsers';
+import ShowGithubUser from './ShowGithubUser';
+import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/users/:username" component={ShowGithubUser} />
-      </Switch>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <h1>GitHub Users</h1>
+        <Router>
+          <Routes>
+            <Route path="/" element={<GithubUsers />} />
+            <Route path="/users/:username" element={<ShowGithubUser />} />
+          </Routes>
+        </Router>
+      </header>
+    </div>
   );
 }
 
